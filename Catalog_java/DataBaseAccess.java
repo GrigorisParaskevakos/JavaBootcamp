@@ -75,10 +75,8 @@ public class DataBaseAccess {
                         }
                     } else {
                         System.out.println("Bye bye!");
-
                     }
                 }
-
             }
             input.close();
             con.close();
@@ -88,6 +86,5 @@ public class DataBaseAccess {
         } catch (SQLException ex) {
             Logger.getLogger(DataBaseAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 }
