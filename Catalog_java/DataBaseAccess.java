@@ -25,14 +25,11 @@ public class DataBaseAccess {
 
                 Statement stmt = con.createStatement();
                 Statement stmt2 = con.createStatement();
-                Statement stmt4 = con.createStatement();
-                Statement stmt5 = con.createStatement();
 
                 ResultSet rs = stmt.executeQuery("select * from catalog.users");
 
                 //ask user
                 Scanner input = new Scanner(System.in);
-                int i = 0;
                 while (rs.next()) {
                     System.out.println("FirstName: ");
                     String userName = input.nextLine();
@@ -41,19 +38,18 @@ public class DataBaseAccess {
                     ResultSet rs2 = stmt2.executeQuery("SELECT * FROM catalog.users where first_name = '" + userName + "' AND Last_name = '" + lastName + "'");
                     System.out.println();
                     if ((userName.equals(rs.getString(2))) && (lastName.equals(rs.getString(3)))) {
-                        System.out.println("Hello" + userName + " \n");
+                        System.out.println("***Hello " + userName + "!!!*** \n");
                         while (rs2.next()) {
                             //Display Values
-                            System.out.println("USER ID| FIRST NAME  | LAST NAME       | PHONE1    | PHONE2");
-                            System.out.printf(rs.getInt(1) + "      | " + rs.getString(2) + "       | " + rs.getString(3) + " | " + rs.getString(4) + "| " + rs.getString(5) + "\n");
+                            System.out.println("USER ID| FIRST NAME  | LAST NAME  | PHONE1    | PHONE2");
+                            System.out.printf(rs.getInt(1) + "      | " + rs.getString(2) + "      | " + rs.getString(3) + "   | " + rs.getString(4) + "| " + rs.getString(5) + "\n");
                             System.out.println("----------------------------");
                         }
                     } else {
-                        i++;
                         System.out.println("You don't Exist, sorry!\n");
                     }
                     input.close();
-                    //exit(1);
+                    exit(0);
                 }
                 con.close();
 
