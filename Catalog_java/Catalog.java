@@ -6,7 +6,7 @@ package catalog;
  */
 public class Catalog {
 
-    public static void main(String[] args) throws ClassNotFoundException, InterruptedException {
+    public static void main(String[] args)  {
         DataBaseAccess myConnection = new DataBaseAccess();
         myConnection.dbConnect();
     }
